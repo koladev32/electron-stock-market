@@ -1,6 +1,7 @@
 workflows:
   linux-build:
     name: Linux Build
+    instance_type: linux
     max_build_duration: 60
     environment:
       node: 16.13.1
