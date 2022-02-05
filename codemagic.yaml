@@ -10,7 +10,7 @@ workflows:
       - name: Installing packags
         script: yarn install
       - name: Installing RPM to build for arch linux
-        script: sudo apt install rpm
+        script: sudo apt install rpm -y
       - name: Building Applications
         script: yarn run make
 
