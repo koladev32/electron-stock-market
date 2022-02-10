@@ -5,11 +5,14 @@ import useAlphaVantage from './useAlphaVantage';
 
 import { symbols } from './api';
 
+import './App.css';
+
 function App() {
+
 
   const [symbol, setSymbol] = useState("MSFT");
 
-  const dataAlpha = useAlphaVantage(symbol);
+  const dataAlpha = useAlphaVantage(`?symbol=${symbol}`);
 
   if (!dataAlpha) return <div>Loading...</div>;
 
@@ -41,7 +44,7 @@ function App() {
   return (
     <div>
       <div>
-        <select value={symbol} onChange={e => setSymbol(e.target.value)}>
+        <select className="select" value={symbol} onChange={e => {setSymbol(e.target.value)}}>
           {symbols.map(symbol => <option key={symbol} value={symbol}>{symbol}</option>)}
         </select>
       </div>
