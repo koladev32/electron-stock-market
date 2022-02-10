@@ -18,6 +18,8 @@ const useAlphaVantage = (params) => {
     if (seriesData.data) {
         const data = seriesData.data["Time Series (Daily)"];
 
+        if (!data) return null;
+
         const series = Object.keys(data).map(key => {
 
             const values = Object.values(data[key]);

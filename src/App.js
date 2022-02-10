@@ -14,7 +14,7 @@ function App() {
 
   const dataAlpha = useAlphaVantage(`?symbol=${symbol}`);
 
-  if (!dataAlpha) return <div>Loading...</div>;
+  if (!dataAlpha) return <div className='loading'>Loading...</div>;
 
   const state = {
           
