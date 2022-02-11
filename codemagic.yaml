@@ -30,7 +30,7 @@ workflows:
     name: Windows Build
     instance_type: mac_mini
     environment:
-    node: 16.13.1
+      node: 16.13.1
     
     scripts:
       - name: Installing packags
