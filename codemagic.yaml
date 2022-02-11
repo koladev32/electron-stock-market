@@ -21,7 +21,7 @@ workflows:
       - name: Installing Nodejs
         script: choco install nodejs -y --version 16.14.0
       - name: Installing yarn
-        script: choco install yarn -y
+        script: npm install --global yarn
       - name: Installing packages
         script: yarn install
       - name: Building Applications
