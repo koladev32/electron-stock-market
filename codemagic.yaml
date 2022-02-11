@@ -3,10 +3,10 @@ workflows:
     name: Linux Build
     instance_type: linux
     environment:
-      node: 16.13.1
+      node: 16.14.0
     
     scripts: 
-      - name: Installing packags
+      - name: Installing packages
         script: yarn install
       - name: Installing RPM to build for arch linux
         script: sudo apt install rpm -y
@@ -16,11 +16,11 @@ workflows:
   windows-build:
     name: Windows Build
     instance_type: windows_x2
-    environment:
-      node: 16.13.1
     
     scripts:
-      - name: Installing packags
+      - name: Installing Nodejs
+        script:  choco install nodejs --version 16.14.0
+      - name: Installing packages
         script: yarn install
       - name: Building Applications
         script: yarn run make
@@ -29,10 +29,10 @@ workflows:
     name: macOS Build
     instance_type: mac_mini
     environment:
-      node: 16.13.1
+      node: 16.14.0
     
     scripts:
-      - name: Installing packags
+      - name: Installing packages
         script: yarn install
       - name: Building Applications
         script: yarn run make
