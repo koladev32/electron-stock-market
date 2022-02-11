@@ -13,7 +13,6 @@ workflows:
       - name: Building Applications
         script: yarn run make
 
-
   windows-build:
     name: Windows Build
     instance_type: windows_x2
@@ -27,7 +26,7 @@ workflows:
         script: yarn run make
 
   macos-build:
-    name: Windows Build
+    name: macOS Build
     instance_type: mac_mini
     environment:
       node: 16.13.1
