@@ -16,10 +16,12 @@ workflows:
   windows-build:
     name: Windows Build
     instance_type: windows_x2
-    
+  
     scripts:
       - name: Installing Nodejs
-        script:  choco install nodejs --version 16.14.0
+        script: choco install nodejs -y --version 16.14.0
+      - name: Installing yarn
+        script: choco install yarn -y
       - name: Installing packages
         script: yarn install
       - name: Building Applications
@@ -30,7 +32,7 @@ workflows:
     instance_type: mac_mini
     environment:
       node: 16.14.0
-    
+
     scripts:
       - name: Installing packages
         script: yarn install
