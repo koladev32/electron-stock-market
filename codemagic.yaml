@@ -3,9 +3,15 @@ workflows:
     name: Linux Build
     instance_type: linux
     environment:
+      groups:
+        - prod    
+      vars:
+        REACT_APP_API_KEY: Encrypted(...)
       node: 16.14.0
     
     scripts: 
+      - name: Injecting env vars
+        script: echo "REACT_APP_API_KEY=$REACT_APP_API_KEY" >> .env
       - name: Installing packages
         script: yarn install
       - name: Installing RPM to build for arch linux
@@ -34,6 +40,8 @@ workflows:
       node: 16.14.0
 
     scripts:
+      - name: Injecting env vars
+        script: echo "REACT_APP_API_KEY=$REACT_APP_API_KEY" >> .env
       - name: Installing packages
         script: yarn install
       - name: Building Applications
