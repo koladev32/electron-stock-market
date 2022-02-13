@@ -27,6 +27,7 @@ workflows:
       - name: Installing Nodejs
         script: | 
                 choco install nvs -y
+                refreshenv
                 nvs add lts
                 nvs link lts
       - name: Installing yarn
