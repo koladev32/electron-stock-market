@@ -24,6 +24,7 @@ workflows:
     instance_type: windows_x2
   
     scripts:
+      - echo "REACT_APP_API_KEY=$REACT_APP_API_KEY" >> .env
       - choco install nvs -y
       - nvs add node/lts
       - nvs use node
