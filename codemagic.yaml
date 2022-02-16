@@ -20,20 +20,25 @@ workflows:
   windows-build:
     name: Windows Build
     instance_type: windows_x2
+    environment:
+      groups:
+        - prod   
+      node: 16.14.0
   
     scripts:
-      - echo "REACT_APP_API_KEY=$REACT_APP_API_KEY" >> .env
-      - choco install nvs -y
-      - nvs add node/lts
-      - nvs use node
-      - npm install --global yarn
-      - yarn install
-      - yarn run make
+      - name: Injecting env vars
+        script: echo "REACT_APP_API_KEY=$REACT_APP_API_KEY" >> .env
+      - name: Installing packages
+        script: yarn install
+      - name: Building Applications
+        script: yarn run make
 
   macos-build:
     name: macOS Build
     instance_type: mac_mini
     environment:
+      groups:
+        - prod 
       node: 16.14.0
 
     scripts:
