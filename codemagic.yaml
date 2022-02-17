@@ -15,7 +15,12 @@ workflows:
       - name: Installing RPM to build for arch linux
         script: sudo apt install rpm -y
       - name: Building Applications
-        script: yarn run make
+        script: yarn make-linux
+
+    artifacts:
+      - out/make/deb/*.deb
+      - out/make/rpm/*.rpm
+      - out/make/zip/linux/x64/*.rpm
 
   windows-build:
     name: Windows Build
@@ -47,6 +52,4 @@ workflows:
       - name: Installing packages
         script: yarn install
       - name: Building Applications
-        script: yarn run make
-      - name: Importing buid directory
-        script: cp  -r out/ $FCI_EXPORT_DIR/out
+        script: yarn make-mac

@@ -31,6 +31,8 @@
     "dev": "concurrently -k \"BROWSER=none yarn start\" \"yarn:electron\"",
     "electron": "wait-on tcp:3000 && electron .",
     "package": "electron-forge package",
+    "make-mac": "electron-forge make --platform darwin",
+    "make-linux": "electron-forge make --platform linux",
     "make": "electron-forge make"
   },
   "eslintConfig": {
@@ -54,6 +56,7 @@
   "devDependencies": {
     "@electron-forge/cli": "^6.0.0-beta.63",
     "@electron-forge/maker-deb": "^6.0.0-beta.63",
+    "@electron-forge/maker-dmg": "^6.0.0-beta.63",
     "@electron-forge/maker-rpm": "^6.0.0-beta.63",
     "@electron-forge/maker-squirrel": "^6.0.0-beta.63",
     "@electron-forge/maker-zip": "^6.0.0-beta.63",
@@ -73,20 +76,31 @@
           }
         },
         {
+          "name": "@electron-forge/maker-deb",
+          "config": {
+            "name": "stock_trading_app"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {
+            "name": "stock_trading_app"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-dmg",
+          "config": {
+            "name": "stock_trading_app",
+            "format": "ULFO"
+          }
+        },
+        {
           "name": "@electron-forge/maker-zip",
           "platforms": [
             "darwin",
             "linux",
             "win32"
           ]
-        },
-        {
-          "name": "@electron-forge/maker-deb",
-          "config": {}
-        },
-        {
-          "name": "@electron-forge/maker-rpm",
-          "config": {}
         }
       ]
     }
