@@ -53,3 +53,6 @@ workflows:
         script: yarn install
       - name: Building Applications
         script: yarn make-mac
+
+    artifacts:
+      - out/make/*.dmg
