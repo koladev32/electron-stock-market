@@ -18,9 +18,9 @@ workflows:
         script: yarn make-linux
 
     artifacts:
-      - out/make/deb/*.deb
-      - out/make/rpm/*.rpm
-      - out/make/zip/linux/x64/*.rpm
+      - out/make/deb/x64/*.deb
+      - out/make/rpm/x64/*.rpm
+      - out/make/zip/linux/x64/*.zip
 
   windows-build:
     name: Windows Build
